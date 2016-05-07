@@ -1,0 +1,85 @@
+@charset "utf-8";
+html,body{
+				width: 100%;
+			    height: 100%;
+			}
+			body,div,label,hr,input,dl,dt,dd,nav,button,h1,h2,h3,h4,p,ul,ol,form,fieldset,figure{
+					margin: 0;
+					padding: 0;
+				}
+			#foo-title{
+				background:#0cc440;
+				color: white;
+				width: 100%;
+				height: .75rem;
+				padding-top: .2rem;
+				font-size: .42rem;
+				position: fixed;
+				top: 0;
+				font-family: "微软雅黑";
+			}
+			.foo-btn{
+				width: 2.38rem;
+				height: .48rem;
+				margin: 0 auto;
+			}
+			.foo-btn a{
+				display:block;
+				float: left;
+				color: white;
+				text-align: center;
+				width:50%;
+				height: .48rem;
+				line-height:.48rem;
+				background:#3dd066;
+				font-size: .22rem;
+				text-decoration: none;
+			}
+			.active{
+				display:block;
+				background:#53e77e !important;
+			}
+			.foo-btn a:nth-child(1){
+				border-bottom-left-radius:.5rem;
+				border-top-left-radius:.5rem;
+			}
+			.foo-btn a:nth-child(2){
+				border-bottom-right-radius:.5rem;
+				border-top-right-radius:.5rem;
+			}
+			
+			#foot{
+				width: 100%;
+				position: fixed;
+				bottom:0;
+				height: .8rem;
+				padding-top: .2rem;
+				border-top: 1px solid gainsboro;
+				font-size: .24rem;
+				font-family: "微软雅黑";
+				background: white;
+			}
+			.foo-nav{
+				position: relative;
+				z-index: 0;
+			}
+			.foo-nav dl{float:left; width: 20%;height: .9rem;text-align: center;color:gray;}
+			.foo-nav dt{box-sizing: border-box;text-align: center;width:.3rem;height:.3rem;margin: 0 auto;}
+			.foo-nav dt img{width:.3rem;height:.3rem; border: none;}
+			.foo-nav .dt03{
+				width: 1.25rem; 
+				height: 1.25rem;
+				border: 2px solid #d5d5d5; 
+				border-radius:50%;
+				position:absolute;
+				top:-.45rem; 
+				z-index:2 !important;
+				background: white;
+			}
+			.foo-nav .dt03 img{
+				width: .7rem;
+				height: .7rem;
+				margin-top: .25rem;
+			}
+			.foo-nav dd{margin:.05rem;}
+			.foo-nav .dd-active{color:#0cc440;}

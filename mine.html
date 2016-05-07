@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/swiper.min.css"/>
+		<style>
+			
+			html,body{
+				width: 100%;
+			    height: 100%;
+			}
+			body,div,label,hr,input,dl,dt,dd,nav,button,h1,h2,h3,h4,p,ul,ol,form,fieldset,figure{
+					margin: 0;
+					padding: 0;
+				}
+			body{
+				background: gainsboro;
+			}
+			/*-----头部----------------------*/
+			#fin-title{
+				text-align: center;
+				width: 100%;
+				height: .88rem;
+				line-height: .88rem;
+				background:#0cc440;
+				font-size: .42rem;
+				font-family: "微软雅黑";
+				color: white;
+				position: fixed;
+				top: 0;
+			}
+			/*-----内容----------------------*/
+			#mycon{
+				width: 100%;
+				min-height: 5rem;
+				background: white;
+				margin-top:1rem;
+			}
+			.mycon01{
+				background: white;
+				font-size: .24rem;
+			}
+			.con-li{
+				height: 1.2rem;
+				padding: .3rem .3rem 0;
+			}
+			.con-li-div01{
+				float: left;
+				width: 20%;
+				height: .95rem;
+				text-align: center;
+				margin-right: .2rem;
+			}
+			.con-li-div01 img{
+				width: .95rem;
+				height: .95rem;
+				border: 1px solid gainsboro;
+				border-radius: 50%;
+			}
+			.con-li-div02{
+				float: right;
+				width: 75%;
+				height: .95rem;
+			}
+			.con-p01{
+				height: .38rem;
+				margin-bottom:.1rem;
+			}
+			.con-p01 span{
+				display:block;
+			}
+			.con-nick{
+				height: .38rem;
+				font-size: .28rem;
+				font-family: "微软雅黑";
+				float: left;
+			}
+			.con-p02{
+				color:#a7a7a7;
+				overflow: hidden;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+			
+			.my-container{
+				height: 8rem !important;
+			}
+			.my-page {
+		    	width:100%
+				border-bottom: 1px solid gainsboro;
+		    }
+			.swiper-pagination-bullet{
+				width:33.33%;
+				height: .68rem;
+				line-height:.68rem;
+				text-align:center;
+				border-radius:0;
+				margin: 0 !important;
+				font-size:.28rem;
+				background:rgba(255,255,255,0.9);
+				font-family: "微软雅黑";
+				}
+			.swiper-pagination-bullet-active{
+				border-bottom:3px solid #0cc440;
+				color: #0cc440;
+				background: rgba(255,255,255,0.9);
+			}
+			.my-sec01{
+				width: 100%;
+				min-height:3rem;
+				background: ghostwhite;
+				font-size: .26rem;
+			}
+			.my-sec01 img{
+				width: 50%;
+			}
+			
+			/*-----尾部---------------------------------------------------------------*/	
+			#foot{
+				width: 100%;
+				position: fixed;
+				bottom:0;
+				height: .8rem;
+				padding-top: .2rem;
+				border-top: 1px solid gainsboro;
+				font-size: .24rem;
+				font-family: "微软雅黑";
+				background: white;
+			}
+			.foo-nav{
+				position: relative;
+				z-index: 0;
+			}
+			.foo-nav dl{float:left; width: 20%;height: .9rem;text-align: center;color:gray;}
+			.foo-nav dt{box-sizing: border-box;text-align: center;width:.3rem;height:.3rem;margin: 0 auto;}
+			.foo-nav dt img{width:.3rem;height:.3rem; border: none;}
+			.foo-nav .dt03{
+				width: 1.25rem; 
+				height: 1.25rem;
+				border: 2px solid #d5d5d5; 
+				border-radius:50%;
+				position:absolute;
+				top:-.45rem; 
+				z-index:2 !important;
+				background: white;
+			}
+			.foo-nav .dt03 img{
+				width: .7rem;
+				height: .7rem;
+				margin-top: .25rem;
+			}
+			.foo-nav dd{margin:.05rem;}
+			.foo-nav .dd-active{color:#0cc440;}
+		</style>
+		
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/swiper.min.js" ></script>
+		<script>
+			$(function(){
+				var mySwiper = new Swiper('.swiper-container',{
+					pagination: '.my-page',
+					paginationClickable: true,
+					paginationBulletRender: function (index, className) {
+					switch (index) {
+					  case 0: name='照片(3)';break;
+					  case 1: name='关注(3)';break;
+					  case 2: name='粉丝(8)';break;
+					  default: name='';
+					}
+					      return '<span class="' + className + '">' + name + '</span>';
+					  }
+				});
+			});
+			
+			
+		</script>
+		
+		
+	</head>
+	<body>
+		<!--头部---------------------------->
+		<div id="fin-title" style="z-index: 99999;">
+			个人中心
+		</div>
+		<!--内容---------------------------->
+		<div id="mycon">
+			<!--个人中心内容---------------------------->
+			<div class="mycon01">
+				<ul>
+					<li class="con-li">
+						<div class="con-li-div01"><img src="img/head-ico.png"/></div>
+						<div class="con-li-div02">
+							<p class="con-p01"><span class="con-nick">萌兔</span></p>
+							<p class="con-p02">好好干活吧，别整天做白日梦和当键盘侠了！好好干活吧，别整天做白日梦和当键盘侠了！好好干活吧，别整天做白日梦和当键盘侠了！好好干活吧，别整天做白日梦和当键盘侠了！</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--照片、关注、粉丝内容---------------------------->
+			<div class="my-container swiper-container swiper-container-horizontal">
+				<div class="page my-page swiper-pagination-clickable swiper-pagination-bullets" style="z-index: 99999;">
+					<span class=" swiper-pagination-bullet swiper-pagination-bullet-active">Swiper应用</span>
+					<span class="swiper-pagination-bullet">Swiper教程</span>
+					<span class="swiper-pagination-bullet">Swiper介绍</span>
+				</div>
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-slide-active" style="width: 800px;">
+						<section class="my-sec01">
+							<img src="img/f01.png" />
+							<img src="img/f02.png" />
+							<img src="img/f03.png" />
+						</section>
+					</div>
+					<div class="swiper-slide swiper-slide-next" style="width: 800px;">
+						<section class="my-sec01">
+							关注(3)关注(3)关注(3)
+						</section>
+					</div>
+					<div class="swiper-slide" style="width: 800px;">
+						<section class="my-sec01">
+							粉丝(8)粉丝(8)粉丝(8)
+						</section>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!--尾部---------------------------->
+		<div id="foot" style="z-index: 9999;">
+			<nav class="foo-nav">
+				<dl>
+					<dt><a href="football.html"><img src="img/home.png"/></a></dt>
+					<dd>主页</dd>
+				</dl>
+				<dl>
+					<dt><a href="find.html"><img src="img/find.png"/></a></dt>
+					<dd>发现</dd>
+				</dl>
+				<dl>
+					<dt class="dt03"><img src="img/center.png"/></dt>
+					<dd style="display: none;"></dd>
+				</dl>
+				<dl>
+					<dt><a href="mine.html"><img src="img/me2.png"/></a></dt>
+					<dd  class="dd-active">我的</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/out.png"/></dt>
+					<dd>退出</dd>
+				</dl>
+			</nav>
+		</div>
+	</body>
+</html>

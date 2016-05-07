@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<style>
+			html,body{
+				width: 100%;
+			    height: 100%;
+			}
+			body,div,label,hr,input,dl,dt,dd,nav,button,h1,h2,h3,h4,p,ul,ol,form,fieldset,figure{
+					margin: 0;
+					padding: 0;
+				}
+			body{
+				background: gainsboro;
+			}
+			li{
+				list-style: none;
+			}
+			/*-----头部----------------------*/
+			#fin-title{
+				text-align: center;
+				width: 100%;
+				height: .88rem;
+				line-height: .88rem;
+				background:#0cc440;
+				font-size: .42rem;
+				font-family: "微软雅黑";
+				color: white;
+				position: fixed;
+				top: 0;
+			}
+			#search{
+				width: 96%;
+				height: .7rem;
+				border-bottom: 1px solid gainsboro;
+				padding:0 2%;
+				margin-bottom: .12rem;
+				background: white;
+				position: fixed;
+				top: .88rem;
+			}
+			#search input{
+				display:block;
+				width: 80%;
+				height: .45rem;
+				border:1px solid gainsboro;
+				border-radius: .05rem;
+				float: left;
+				margin :.125rem .15rem 0 0;
+				font-size: .24rem;
+				font-family: "微软雅黑";
+				padding-left: 2%;
+			}
+			#search button{
+				display:block;
+				float: right;
+				width: 15%;
+				height: .45rem;
+				border:none;
+				border-radius: .05rem;
+				background:#0cc440;
+				font-size: .24rem;
+				color: white;
+				margin-top:.13rem;
+				font-family: "微软雅黑";
+			}
+		
+		/*-----内容---------------------------------------------------------------*/	
+			#con{
+				width: 100%;
+				min-height:8.34rem;
+				background: white;
+				font-size: .24rem;
+			}
+			.con-li{
+				height: 1.2rem;
+				border-bottom: 1px solid gainsboro;
+				padding: .3rem .3rem 0;
+			}
+			.con-li-div01{
+				float: left;
+				width: 20%;
+				height: .95rem;
+				text-align: center;
+				margin-right: .2rem;
+			}
+			.con-li-div01 img{
+				width: .95rem;
+				height: .95rem;
+				border: 1px solid gainsboro;
+				border-radius: 50%;
+			}
+			.con-li-div02{
+				float: right;
+				width: 75%;
+				height: .95rem;
+			}
+			.con-p01{
+				height: .38rem;
+				margin-bottom:.1rem;
+			}
+			.con-p01 span{
+				display:block;
+			}
+			.con-nick{
+				height: .38rem;
+				font-size: .28rem;
+				font-family: "微软雅黑";
+				float: left;
+			}
+			.con-btn{
+				width: .8rem;
+				height: .38rem;
+				border-radius: .05rem;
+				background:gainsboro;
+				color: white;
+				text-align: center;
+				line-height:.38rem;
+				float: right;
+			}
+			.con-btn-active{
+				background:#0cc440 !important;
+			}
+			.con-p02{
+				color:#a7a7a7;
+				overflow: hidden;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+		
+		
+		/*-----尾部---------------------------------------------------------------*/	
+			#foot{
+				width: 100%;
+				position: fixed;
+				bottom:0;
+				height: .8rem;
+				padding-top: .2rem;
+				border-top: 1px solid gainsboro;
+				font-size: .24rem;
+				font-family: "微软雅黑";
+				background: white;
+			}
+			.foo-nav{
+				position: relative;
+				z-index: 0;
+			}
+			.foo-nav dl{float:left; width: 20%;height: .9rem;text-align: center;color:gray;}
+			.foo-nav dt{box-sizing: border-box;text-align: center;width:.3rem;height:.3rem;margin: 0 auto;}
+			.foo-nav dt img{width:.3rem;height:.3rem; border: none;}
+			.foo-nav .dt03{
+				width: 1.25rem; 
+				height: 1.25rem;
+				border: 2px solid #d5d5d5; 
+				border-radius:50%;
+				position:absolute;
+				top:-.45rem; 
+				z-index:2 !important;
+				background: white;
+			}
+			.foo-nav .dt03 img{
+				width: .7rem;
+				height: .7rem;
+				margin-top: .25rem;
+			}
+			.foo-nav dd{margin:.05rem;}
+			.foo-nav .dd-active{color:#0cc440;}
+		</style>
+	
+		<script>
+			$(function(){
+				/*-----ajax 获取评论信息内容----------------------------------------*/
+				$.ajax({
+					type:"get",
+					url:"json/data.json",
+					async:true,
+					success:function(str){
+						console .info(str);
+						var conStr=str.data2;
+						console .info(conStr);
+						var consmg='';
+						$.each(conStr, function(i,val) {
+							var li='<li class="con-li">'
+									+'<div class="con-li-div01"><img src="'+val.src+'"/></div><div class="con-li-div02">'
+									+'<p class="con-p01"><span class="con-nick">'+val.nick+'</span><span class="con-btn">关注</span></p>'
+									+'<p class="con-p02">'+val.comment+'</p>'
+									+'</div></li>';
+							
+							consmg+=li;
+						});
+						
+						$('#con ul').append(consmg);
+					}
+				});
+				
+			})
+			
+			$(function(){
+				console.info($('.con-btn'));	
+				$('.con-btn').click(function(){
+					alert(1)
+					/*if ($('.con-btn').className='con-btn') {
+						$('.con-btn').addClass('con-btn-active');
+					} else{
+						$('.con-btn').removeClass('con-btn-active');
+					}*/
+				});
+			})
+		</script>
+	
+	</head>
+	<body>
+		<!--头部---------------------------->
+		<div id="fin-title" style="z-index: 99999;">
+			发现
+		</div>
+		<!--搜索-------------------------------->
+		<div id="search">
+			<input type="text" placeholder="请输入昵称" /><button>搜索</button>
+				
+		</div>
+		<!--内容-------------------------------->
+		<div id="con">
+			<ul>
+				<!--<li class="con-li">
+					<div class="con-li-div01"><img src="img/head-ico.png"/></div>
+					<div class="con-li-div02">
+						<p class="con-p01"><span class="con-nick">芹菜</span><span class="con-btn">关注</span></p>
+						<p class="con-p02">好好干活吧，别整天做白日梦和当键盘侠了！好好干活吧，别整天做白日梦和当键盘侠了！好好干活吧，别整天做白日梦和当键盘侠了！好好干活吧，别整天做白日梦和当键盘侠了！</p>
+					</div>
+				</li>
+				<li class="con-li"></li>-->
+			</ul>
+		</div>
+		<!--尾部---------------------------->
+		<div id="foot" style="z-index: 9999;">
+			<nav class="foo-nav">
+				<dl>
+					<dt><a href="football.html"><img src="img/home.png"/></a></dt>
+					<dd>主页</dd>
+				</dl>
+				<dl>
+					<dt><a href="find.html"><img src="img/find2.png"/></a></dt>
+					<dd class="dd-active">发现</dd>
+				</dl>
+				<dl>
+					<dt class="dt03"><img src="img/center.png"/></dt>
+					<dd style="display: none;"></dd>
+				</dl>
+				<dl>
+					<dt><a href="mine.html"><img src="img/me.png"/></a></dt>
+					<dd>我的</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/out.png"/></dt>
+					<dd>退出</dd>
+				</dl>
+			</nav>
+		</div>
+	</body>
+</html>
